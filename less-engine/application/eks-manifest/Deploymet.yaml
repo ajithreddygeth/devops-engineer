@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: less-deployment
+  labels:
+    app: lessengine
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lessengine
+  template:
+    metadata:
+      labels:
+        app: lessengine
+    spec:
+      containers:
+      - name: less
+        image: ajithreddydocker/hellowd:0.9
+        ports:
+        - containerPort: 5377

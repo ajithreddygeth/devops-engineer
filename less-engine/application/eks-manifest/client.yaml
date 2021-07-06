@@ -1,0 +1,16 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: client
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: client
+            image: ajithreddydocker/hellowd:client
+            imagePullPolicy: IfNotPresent
+          restartPolicy: OnFailure
